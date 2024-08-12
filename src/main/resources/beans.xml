@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:customeTag="https://www.lichangnan.com/schema/user"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+https://www.lichangnan.com/schema/user
+https://www.lichangnan.com/schema/user.xsd">
+
+    <!-- 定义一个bean -->
+    <bean id="myBean" class="com.example.demo.example.bean.MyBeanClass"/>
+
+    <!-- 如果你的bean需要注入其他bean或属性，也可以在这里进行 -->
+    <!-- 例如，注入一个String类型的属性 -->
+    <bean id="anotherBean" class="com.example.demo.example.bean.AnotherBeanClass">
+        <property name="someProperty" value="SomeValue"/>
+        <meta key="ccc" value="x"/>
+        <meta key="ccc1" value="xxx"/>
+        <meta key="ccc2" value="xx"/>
+    </bean>
+
+    <!-- 复杂点的例子，比如使用构造函数注入 -->
+    <bean id="yetAnotherBean" class="com.example.demo.example.bean.YetAnotherBeanClass">
+        <constructor-arg index="0" type="java.lang.String" value="ConstructorArgValue"/>
+        <constructor-arg index="1" ref="myBean"/>
+    </bean>
+
+    <customeTag:user id="user1111" name="name22222222" email="email32233333333"/>
+
+    <bean id="computer" class="com.example.demo.example.factorybean.ComputerFactoryBean">
+        <property name="computerInfo" value="MAC PRO M4;23000"/>
+    </bean>
+</beans>
