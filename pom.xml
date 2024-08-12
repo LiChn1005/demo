@@ -46,6 +46,16 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.34</version>
 		</dependency>
+
+		<!--junit5测试-->
+		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-launcher</artifactId>
+			<version>1.10.3</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
