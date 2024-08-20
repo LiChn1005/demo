@@ -1,7 +1,7 @@
 package com.example.demo.example.bean;
 
 /**
- * TODO
+ * 这是一个bean
  *
  * @author lichangnan
  * @date 2024/8/7

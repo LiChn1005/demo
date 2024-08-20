@@ -20,35 +20,35 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class TestBean {
-    private static final ApplicationContext beanFactory = new ClassPathXmlApplicationContext("beans.xml");
+    private static final ApplicationContext APPLICATIONCONTEXT = new ClassPathXmlApplicationContext("beans.xml");
 
     @Test
     public void test1() {
-        MyBeanClass myBean = beanFactory.getBean("myBean", MyBeanClass.class);
+        MyBeanClass myBean = APPLICATIONCONTEXT.getBean("myBean", MyBeanClass.class);
         log.info("yetAnotherBeanClass = {}", myBean);
 
-        log.info("custom tag = {} ", beanFactory.getBean("user1111"));
+        log.info("custom tag = {} ", APPLICATIONCONTEXT.getBean("user1111"));
     }
 
     @Test
     public void test2() {
-        Computer computer1 = beanFactory.getBean("computer", Computer.class);
+        Computer computer1 = APPLICATIONCONTEXT.getBean("computer", Computer.class);
         log.info("computer1 = {}", computer1);
 
-        Computer computer2 = beanFactory.getBean("computer", Computer.class);
+        Computer computer2 = APPLICATIONCONTEXT.getBean("computer", Computer.class);
         log.info("computer2 = {} ", computer2);
 
-        ComputerFactoryBean computer3 = beanFactory.getBean("&computer", ComputerFactoryBean.class);
+        ComputerFactoryBean computer3 = APPLICATIONCONTEXT.getBean("&computer", ComputerFactoryBean.class);
         log.info("computer3 = {} type = {} info = {}", computer3.getObject(), computer3.getObjectType(), computer3.getComputerInfo());
 
         log.info("computer1 == computer2 {} {} {} {}", computer1 == computer2, System.identityHashCode(computer1), System.identityHashCode(computer2), System.identityHashCode(computer3.getObject()));
         log.info("computer1 == computer3 {}", computer1 == computer3.getObject());
         log.info("computer2 == computer3 {}", computer2 == computer3.getObject());
 
-        Computer computer4 = beanFactory.getBean("computer", Computer.class);
+        Computer computer4 = APPLICATIONCONTEXT.getBean("computer", Computer.class);
         log.info("computer4 = {} {} ", computer4, System.identityHashCode(computer4));
 
-        ComputerFactoryBean computer5 = beanFactory.getBean("&computer", ComputerFactoryBean.class);
+        ComputerFactoryBean computer5 = APPLICATIONCONTEXT.getBean("&computer", ComputerFactoryBean.class);
         log.info("computer5 = {} {} ", computer5, System.identityHashCode(computer5));
 
     }
